@@ -1,7 +1,6 @@
 package com.developer.keystone.service;
 
-import com.developer.keystone.domain.Resident;
-import com.developer.keystone.entity.FacilityData;
+import com.developer.keystone.entity.Resident;
 
 import java.util.List;
 

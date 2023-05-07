@@ -18,6 +18,74 @@ services:
     depends_on:
       - postgres
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/Facilty1
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/Facility1
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
+  postgres2:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: facility2
+    volumes:
+      - ./facility2.sql:/docker-entrypoint-initdb.d/facility2.sql
+    ports:
+      - "5434:5432"
+  my-spring-boot-service2:
+    build: .
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgres2
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres2:5432/Facility2
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+#version: '3.8'
+#
+#services:
+#  app1:
+#    container_name: app1
+#    build: .
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://db1:5432/facility1
+#      SPRING_DATASOURCE_USERNAME: db1_user
+#      SPRING_DATASOURCE_PASSWORD: db1_password
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - db1
+#  db1:
+#    container_name: db1
+#    image: postgres
+#    environment:
+#      POSTGRES_DB: facility1
+#      POSTGRES_USER: db1_user
+#      POSTGRES_PASSWORD: db1_password
+#    ports:
+#      - "5432:5432"
+#    volumes:
+#      - ./facility1.sql:/docker-entrypoint-initdb.d/facility1.sql
+
+#  app2:
+#    container_name: app2
+#    build: .
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://db2:5432/facility2
+#      SPRING_DATASOURCE_USERNAME: db2_user
+#      SPRING_DATASOURCE_PASSWORD: db2_password
+#    ports:
+#      - "8081:8080"
+#    depends_on:
+#      - db2
+#  db2:
+#    container_name: db2
+#    image: postgres
+#    environment:
+#      POSTGRES_DB: facility2
+#      POSTGRES_USER: db2_user
+#      POSTGRES_PASSWORD: db2_password
+#    ports:
+#      - "5433:5432"
+#    volumes:
+#      - ./facility2.sql:/docker-entrypoint-initdb.d/facility2.sql

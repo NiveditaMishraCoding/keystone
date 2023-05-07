@@ -20,15 +20,15 @@ SET row_security = off;
 
 --
 -- TOC entry 3577 (class 1262 OID 19432)
--- Name: Facilty1; Type: DATABASE; Schema: -; Owner: postgres
+-- Name: Facility1; Type: DATABASE; Schema: -; Owner: postgres
 --
 
-CREATE DATABASE "Facilty1" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.UTF-8';
+CREATE DATABASE "Facility1" WITH TEMPLATE = template0 ENCODING = 'UTF8' LOCALE = 'en_US.UTF-8';
 
 
-ALTER DATABASE "Facilty1" OWNER TO postgres;
+ALTER DATABASE "Facility1" OWNER TO postgres;
 
-\connect "Facilty1"
+\connect "Facility1"
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;

@@ -1,10 +1,9 @@
 package com.developer.keystone.controller;
 
 import com.developer.keystone.domain.Facility1Data;
-import com.developer.keystone.domain.Resident;
+import com.developer.keystone.entity.Resident;
 import com.developer.keystone.entity.Facilities;
 import com.developer.keystone.entity.FacilityData;
-import com.developer.keystone.repository.FacilityDataRepository;
 import com.developer.keystone.service.MyService;
 import com.developer.keystone.service.impl.FacilityServiceImpl;
 import com.developer.keystone.service.impl.ResidentServiceImpl;
