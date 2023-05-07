@@ -1,16 +1,12 @@
 package com.developer.keystone.service.impl;
 
 import com.developer.keystone.domain.Facility1Data;
-import com.developer.keystone.entity.Facilities;
-import com.developer.keystone.entity.Facility1;
-import com.developer.keystone.entity.Facility2;
-import com.developer.keystone.entity.FacilityData;
+import com.developer.keystone.entity.*;
 import com.developer.keystone.repository.FacilitiesRepository;
 import com.developer.keystone.repository.Facility1Repository;
 import com.developer.keystone.repository.Facility2Repository;
 import com.developer.keystone.repository.FacilityDataRepository;
 import com.developer.keystone.service.FacilityService;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.*;
@@ -80,6 +76,19 @@ public class FacilityServiceImpl implements FacilityService {
         }
         return fac1;
     }
+//    private Resident getResidentInFacility1(ResidentInFacility1 data) {
+//        List<ResidentInFacility1> fac = this.facility1Repository.findAll();
+//        Facility1 fac1 = null;
+//        if (fac.isPresent()) {
+//            fac1 = fac.get();
+//            fac1.setPatientName(data.getPatientName());
+//            fac1.setDob(LocalDate.parse(data.getDob()));
+//            fac1.setGender(data.getGender());
+//            fac1.setSpecialNeeds(data.getSpecialNeeds());
+//            fac1.setSpecificIllness(data.getSpecificIllness());
+//        }
+//        return fac1;
+//    }
 
     private Facility2 getFacility2FromFacilityData(Facility1Data data) {
         Optional<Facility2> fac = this.facility2Repository.findById(data.getPatientId());
